@@ -97,11 +97,11 @@ const Index = () => {
       <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-shrink-0">
               <Brain className="h-8 w-8 text-neon-blue animate-pulse" />
-              <h1 className="text-2xl font-bold text-neon-blue animate-glow">Task Master AI</h1>
+              <h1 className="text-2xl font-bold text-neon-blue animate-glow whitespace-nowrap">Task Master AI</h1>
             </div>
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden md:flex items-center gap-2 flex-shrink-0">
               {[
                 { id: "dashboard", label: "Dashboard", icon: Zap },
                 { id: "tasks", label: "Tasks", icon: Calendar },
@@ -112,14 +112,14 @@ const Index = () => {
                   key={item.id}
                   variant={activeSection === item.id ? "default" : "ghost"}
                   onClick={() => setActiveSection(item.id)}
-                  className={`flex items-center gap-2 transition-all duration-300 ${
+                  className={`flex items-center gap-2 transition-all duration-300 whitespace-nowrap px-4 py-2 min-w-fit ${
                     activeSection === item.id 
                       ? "bg-neon-blue/20 text-neon-blue neon-border" 
                       : "text-gray-400 hover:text-neon-blue hover:bg-neon-blue/10"
                   }`}
                 >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
+                  <item.icon className="h-4 w-4 flex-shrink-0" />
+                  <span className="hidden lg:inline">{item.label}</span>
                 </Button>
               ))}
             </nav>
