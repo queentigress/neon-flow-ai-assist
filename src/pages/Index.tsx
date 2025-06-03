@@ -1,4 +1,3 @@
-
 import { Brain, Calendar, DollarSign, MessageSquare, Users, Zap, CheckCircle, Clock, TrendingUp } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -96,33 +95,36 @@ const Index = () => {
       {/* Header */}
       <header className="border-b border-gray-800 bg-black/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center justify-between min-h-[60px]">
+            <div className="flex items-center gap-3 w-80 flex-shrink-0">
               <Brain className="h-8 w-8 text-neon-blue animate-pulse" />
               <h1 className="text-2xl font-bold text-neon-blue animate-glow whitespace-nowrap">Task Master AI</h1>
             </div>
-            <nav className="hidden md:flex items-center gap-2 flex-shrink-0">
-              {[
-                { id: "dashboard", label: "Dashboard", icon: Zap },
-                { id: "tasks", label: "Tasks", icon: Calendar },
-                { id: "expenses", label: "Expenses", icon: DollarSign },
-                { id: "messages", label: "Messages", icon: MessageSquare }
-              ].map((item) => (
-                <Button
-                  key={item.id}
-                  variant={activeSection === item.id ? "default" : "ghost"}
-                  onClick={() => setActiveSection(item.id)}
-                  className={`flex items-center gap-2 transition-all duration-300 whitespace-nowrap px-4 py-2 min-w-fit ${
-                    activeSection === item.id 
-                      ? "bg-neon-blue/20 text-neon-blue neon-border" 
-                      : "text-gray-400 hover:text-neon-blue hover:bg-neon-blue/10"
-                  }`}
-                >
-                  <item.icon className="h-4 w-4 flex-shrink-0" />
-                  <span className="hidden lg:inline">{item.label}</span>
-                </Button>
-              ))}
+            <nav className="flex items-center justify-center flex-1 max-w-2xl">
+              <div className="flex items-center gap-1 bg-black/30 rounded-lg p-1">
+                {[
+                  { id: "dashboard", label: "Dashboard", icon: Zap },
+                  { id: "tasks", label: "Tasks", icon: Calendar },
+                  { id: "expenses", label: "Expenses", icon: DollarSign },
+                  { id: "messages", label: "Messages", icon: MessageSquare }
+                ].map((item) => (
+                  <Button
+                    key={item.id}
+                    variant={activeSection === item.id ? "default" : "ghost"}
+                    onClick={() => setActiveSection(item.id)}
+                    className={`flex items-center gap-2 transition-all duration-300 whitespace-nowrap px-4 py-2 w-28 justify-center ${
+                      activeSection === item.id 
+                        ? "bg-neon-blue/20 text-neon-blue neon-border" 
+                        : "text-gray-400 hover:text-neon-blue hover:bg-neon-blue/10"
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4 flex-shrink-0" />
+                    <span className="hidden sm:inline text-xs">{item.label}</span>
+                  </Button>
+                ))}
+              </div>
             </nav>
+            <div className="w-80 flex-shrink-0"></div>
           </div>
         </div>
       </header>
